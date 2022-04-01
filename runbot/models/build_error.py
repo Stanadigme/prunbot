@@ -246,7 +246,7 @@ class RunbotTeam(models.Model):
     name = fields.Char('Team', required=True)
     user_ids = fields.Many2many('res.users', string='Team Members', domain=[('share', '=', False)])
     dashboard_id = fields.Many2one('runbot.dashboard', String='Dashboard')
-    build_error_ids = fields.One2many('runbot.build.error', 'team_id', string='Team Errors')
+    build_error_ids = fields.One2many('runbot.build.error', 'team_id', string='Team Errors', domain=[('parent_id', '=', False)])
     path_glob = fields.Char('Module Wildcards',
         help='Comma separated list of `fnmatch` wildcards used to assign errors automaticaly\n'
         'Negative wildcards starting with a `-` can be used to discard some path\n'
