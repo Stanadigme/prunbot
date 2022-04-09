@@ -688,7 +688,7 @@ class BuildResult(models.Model):
                 docker_time = time.time() - dt2time(build.docker_start or build.job_start)
                 if docker_time < 5:
                     continue
-                elif docker_time < 60:
+                elif docker_time < 600:
                     _logger.info('container "%s" seems too take a while to start :%s' % (build.job_time, build._get_docker_name()))
                     continue
                 else:

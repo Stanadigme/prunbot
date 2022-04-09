@@ -147,5 +147,6 @@ RUN <t t-esc="values['python_version']"/> -m pip install --no-cache-dir setuptoo
       <t t-if="values['phantom']" t-call="runbot.docker_install_phantomjs"/>
       <t t-if="values['do_requirements']" t-call="runbot.docker_install_odoo_python_requirements"/>
     </template>
+
   </data>
 </odoo>

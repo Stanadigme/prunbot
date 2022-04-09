@@ -97,7 +97,8 @@ class Host(models.Model):
 
     @api.model
     def _get_current(self):
-        name = config.get('forced_host_name') or fqdn()
+        # name = config.get('forced_host_name') or fqdn()
+        name = 'localhost:8070'
         return self.search([('name', '=', name)]) or self.create({'name': name})
 
     def get_running_max(self):
